@@ -1,0 +1,31 @@
+@use '~src/sass/toolkit';
+
+.summary-total {
+  align-self: flex-end;
+  margin-top: auto;
+   
+  border-top: 1px solid toolkit.getTheme('asideBlockBorder');
+  color: toolkit.getTheme('summaryTextColor');
+
+  &.wrapper {
+    padding-top: 16px;
+    padding-bottom: 0;
+  }
+
+  &-cost {
+    @include toolkit.medium-small-text;
+    flex-basis: 2;
+    text-transform: uppercase;
+  }
+
+  &-price {
+    @include toolkit.large-text;
+    font-weight: bold;
+  }
+
+  button[type="submit"] {
+    @include toolkit.large-cta;
+    background: toolkit.getTheme('ctaBackground');
+    color: toolkit.getTheme('ctaColor');
+  }
+}

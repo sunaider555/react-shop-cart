@@ -1,0 +1,95 @@
+@use '~src/sass/toolkit';
+
+.modal {
+  @include toolkit.center-container(1416px, 840px);
+  background-color: toolkit.getTheme('backgroundContainer');
+  animation: overlayIn .3s ease-in-out;
+
+  @include toolkit.breakpoint() {
+    flex-direction: column;
+  }
+
+  &__image {
+    flex: 1;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    @include toolkit.breakpoint() {
+      min-height: 200px;
+    }
+  }
+
+  &__description {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 45px;
+    max-width: 400px;
+
+    @include toolkit.breakpoint() {
+      max-width: 100%;
+    }
+
+    > * {
+      padding: 18px 0;
+    }
+
+    &-name-price {
+      display: flex;
+      justify-content: space-between;
+      @include toolkit.extra-large-text;
+      @include toolkit.summary-block;
+      padding-top: 0;
+    }
+
+    &-code {
+      color: toolkit.getTheme('tableHeader');
+    }
+
+    &-abstract {
+      @include toolkit.summary-block;
+      @include toolkit.medium-text;
+      line-height: 22px;
+      font-weight: 500;
+      padding-bottom: 4rem;
+    }
+
+    button[type="submit"] {
+      @include toolkit.extra-large-cta;
+      background: toolkit.getTheme('ctaBackground');
+      color: toolkit.getTheme('ctaColor');
+    }
+  }
+
+  &__close {
+    position: absolute;
+    display: block;
+    top: 50px;
+    right: 50px;
+    width: 20px;
+    height: 20px;
+    background: transparent url('./../../../img/close.png') no-repeat;
+    cursor: pointer;
+    opacity: .3;
+
+    @include toolkit.breakpoint() {
+      top: 20px;
+      right: 20px;
+    }
+
+    &:hover {
+      opacity: .8;
+    }
+  }
+}
+
+@keyframes overlayIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

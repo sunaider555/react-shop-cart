@@ -1,0 +1,31 @@
+@use '~src/sass/toolkit';
+
+button.count {
+  @include toolkit.large-text;
+  padding: 0 8px;
+  height: 40px;
+  border: none;
+  background: transparent;
+  color: toolkit.getTheme('quantityButton');
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.product-quantity {
+  @include toolkit.medium-small-text;
+  width: 40px;
+  height: 40px;
+  border: 2px solid toolkit.getTheme('quantityInput');
+  border-radius: 4px;
+  text-align: center;
+}
+
+.product-quantity::-webkit-outer-spin-button,
+.product-quantity::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.product-quantity[type=number] {
+  -moz-appearance: textfield;
+}

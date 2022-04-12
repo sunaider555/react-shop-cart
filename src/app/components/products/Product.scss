@@ -1,0 +1,46 @@
+@use '~src/sass/toolkit';
+
+.product-name {
+  @include toolkit.medium-text;
+  color: toolkit.getTheme('productName');
+
+  a:hover {
+    text-decoration: underline;
+  }
+}
+
+.product-code {
+  @include toolkit.table-text;
+  color: toolkit.getTheme('tableHeader');
+  letter-spacing: 0.13px;
+  font-weight: 400;
+
+  @include toolkit.breakpoint() {
+    span {
+      display: none;
+    }
+  }
+}
+
+.product-image {
+  display: flex;
+  align-items: center;
+  flex-flow: row nowrap;
+
+  img {
+    margin-right: 16px;
+    width: 72px;
+    height: 72px;
+    border: 1px solid toolkit.getTheme('thumbsBorder');
+    border-radius: 4px;
+
+    @include toolkit.breakpoint() {
+      width: 48px;
+      height: 48px;
+    }
+  }
+
+  a:hover img {
+    border-color: toolkit.getTheme('productName');
+  }
+}

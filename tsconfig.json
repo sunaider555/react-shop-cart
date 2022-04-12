@@ -1,0 +1,35 @@
+{
+  "compilerOptions": {
+    "lib": ["ES2017", "DOM"],
+    "target": "es5",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "sourceMap": true,
+    "strictNullChecks": true,
+    "downlevelIteration": true,
+    "declaration": true,
+    "esModuleInterop": true,
+    "strict": true,
+    "jsx": "react",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "outDir": "./dist",
+    "baseUrl": ".",
+    "paths": {
+      "shopping-cart/*": ["./src/app/*"]
+    }
+  },
+  "include": [
+    "./src/**/*"
+  ],
+  "exclude": [
+    "**/*.spec.ts",
+    "node_modules",
+    "dist",
+    "**/api/*.*"
+  ]
+}

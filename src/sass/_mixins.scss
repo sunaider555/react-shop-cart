@@ -1,0 +1,119 @@
+@use 'theme';
+@use 'helpers';
+
+@mixin breakpoint($point: theme.$breakpoint) {
+  @media (max-width: $point) { 
+    @content; 
+  }
+}
+
+@mixin center-container($max-width: 1088px, $max-height: 648px) {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  overflow-x: hidden;
+  overflow-y: auto;
+  max-width: $max-width;
+  max-height: $max-height;
+  width: calc(100% - 64px);
+  height: calc(100% - 64px);
+  border-radius: 4px;
+  transform: translate(-50%, -50%);
+
+  @include breakpoint() {
+    top: 16px;
+    left: 16px;
+    right: 16px;
+    width: calc(100% - 32px);
+    height: calc(100% - 32px);
+    max-height: 100%;
+    transform: translate(0, 0);
+  }
+}
+
+@mixin table-text {
+  font-size: 12px;
+  line-height: 16px;
+}
+
+@mixin table-header {
+  color: helpers.getTheme('tableHeader');
+  text-transform: uppercase;
+  @include table-text;
+}
+
+@mixin summary-block {
+  border-bottom: 1px solid helpers.getTheme(asideBlockBorder);
+}
+
+@mixin extra-large-text {
+  font-size: 24px;
+  line-height: 30px;
+}
+
+@mixin large-text {
+  font-size: 20px;
+  line-height: 25px;
+}
+
+@mixin medium-large-text {
+  font-size: 18px;
+  line-height: 24px;
+}
+
+@mixin medium-text {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+@mixin medium-small-text {
+  font-size: 14px;
+  line-height: 17px;
+}
+
+@mixin small-text {
+  font-size: 10px;
+  line-height: 16px;
+}
+
+@mixin cta-text {
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 14px;
+}
+
+@mixin extra-cta-text {
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 14px;
+}
+
+@mixin cta {
+  width: 100%;
+  border-radius: 4px;
+  cursor: pointer;
+
+  &:hover {
+    opacity: .9;
+  }
+
+  &:disabled {
+    opacity: .4;
+  }
+}
+
+@mixin large-cta {
+  @include cta;
+  @include cta-text;
+  margin-top: 24px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+@mixin extra-large-cta {
+  @include cta;
+  @include extra-cta-text;
+  margin-top: 20px;
+  padding: 24px 0;
+}

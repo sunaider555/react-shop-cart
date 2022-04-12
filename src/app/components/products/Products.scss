@@ -1,0 +1,49 @@
+@use '~src/sass/toolkit';
+
+.products {
+  padding: 40px 32px 40px 56px;
+  flex: 1;
+
+  @include toolkit.breakpoint() {
+    padding: 40px 32px;
+  }
+
+  .tableHead {
+    padding: 32px 0;
+
+    @include toolkit.breakpoint() {
+      display: none;
+    }
+  }
+
+  .products-list {
+    position: relative;
+    width: 100%;
+
+    @include toolkit.breakpoint() {
+      margin-top: 32px;
+    }
+
+    li.products-list-title {
+      @include toolkit.table-header;
+      @include toolkit.small-text;
+      letter-spacing: 1px;
+    }
+  }
+  
+  .col-product {
+    width: 45%;
+  }
+  
+  .col-quantity {
+    width: 20%;
+  }
+  
+  .col-price {
+    width: 20%;
+  }
+  
+  .col-total {
+    width: 15%;
+  }
+}
